@@ -152,3 +152,8 @@ credi[0][name]: Telefone
 debts[0][value]: 2369
 debts[0][status]: PAGO
 ```
+
+## Consuntando com paginação e ordenação
+
+http://localhost:3003/api/billingCycles?skip=0&limit=3&sort=month
+
