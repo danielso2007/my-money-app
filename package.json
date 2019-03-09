@@ -1,0 +1,22 @@
+{
+  "name": "my-money-app",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "bugs": {
+    "url": "https://github.com/danielso2007/my-money-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielso2007/my-money-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard-version": "^5.0.1"
+  }
+}
