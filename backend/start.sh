@@ -2,12 +2,12 @@
 echo "$1"
 fn_desenvolvimento() {
     echo "Executando como Desenvolvimento..."
-    npm run dev
+    yarn run dev
 
 }
 fn_producao() {
     echo "Executando como Produção..."
-    npm run prod
+    yarn run prod
 
 }
 case "$1" in

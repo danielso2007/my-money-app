@@ -1,6 +1,4 @@
 #!/bin/bash
 echo Rodando BACKEND...
-cd backend
-cd src
-nohup node loader.js > output.log &
+yarn run backend_background
 ps -ef | grep loader.js

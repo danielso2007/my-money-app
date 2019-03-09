@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "release": "standard-version"
+    "release": "standard-version",
+    "backend": "cd backend && yarn run dev",
+    "backend_background": "cd backend/src && nohup node loader.js > output.log &"
   },
   "bugs": {
     "url": "https://github.com/danielso2007/my-money-app/issues"
