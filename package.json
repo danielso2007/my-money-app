@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "release": "standard-version",
+    "compile": "cd backend && yarn install",
     "backend": "cd backend && yarn install && yarn run dev",
     "backend_background": "cd backend && yarn install && cd src && nohup node loader.js > output.log &"
   },
