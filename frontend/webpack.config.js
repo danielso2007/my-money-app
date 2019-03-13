@@ -1,5 +1,6 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: './src/index.jsx',
     output: {
@@ -11,33 +12,49 @@ module.exports = {
         contentBase: './public'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
         alias: {
-            modules: __dirname + '/node_modules',
-            jquery: '/home/daniel/desenv/my-money-app/frontend/node_modules/admin-lte/bower_components/jquery/dist/jquery.min.js',
-            bootstrap: '/home/daniel/desenv/my-money-app/frontend/node_modules/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js'
+            modules: path.resolve(__dirname, '/node_modules'),
+            jquery: path.resolve(__dirname, '/node_modules/admin-lte/bower_components/jquery/dist/jquery.min.js'),
+            bootstrap: path.resolve(__dirname, '/node_modules/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js')
         }
     },
     plugins: [
-        new webpack.ProgressPlugin({
+        new webpack.ProgressPlugin((percentage, message) => {
+            console.log(`${(percentage * 100).toFixed()}% ${message}`);
+        }),
+        new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery'
         }),
-        new ExtractTextPlugin('app.css')
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
     ],
     module: {
-        loaders: [{
-            test: /.js[x]?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query: {
-                presets: ['es2015', 'react'],
-                plugins: ['transform-object-rest-spread']
+        rules: [{
+            test: /.jsx?$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ['@babel/plugin-proposal-object-rest-spread']
+                },
             }
         }, {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+            use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        publicPath: '../'
+                    }
+                },
+                "css-loader",
+                "style-loader"
+            ]
         }, {
             test: /\.woff|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
             loader: 'file'
