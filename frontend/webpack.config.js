@@ -14,9 +14,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx'],
         alias: {
-            modules: path.resolve(__dirname, '/node_modules'),
-            jquery: path.resolve(__dirname, '/node_modules/admin-lte/bower_components/jquery/dist/jquery.min.js'),
-            bootstrap: path.resolve(__dirname, '/node_modules/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js')
+            modules: path.resolve(__dirname, 'node_modules'),
+            jquery: path.resolve(__dirname, 'node_modules/admin-lte/bower_components/jquery/dist/jquery.min.js'),
+            bootstrap: path.resolve(__dirname, 'node_modules/admin-lte/bower_components/bootstrap/dist/js/bootstrap.min.js')
         }
     },
     plugins: [
@@ -49,15 +49,20 @@ module.exports = {
             use: [{
                     loader: MiniCssExtractPlugin.loader,
                     options: {
-                        publicPath: '../'
+                        publicPath: './'
                     }
                 },
-                "css-loader",
-                "style-loader"
+                "css-loader"
             ]
         }, {
-            test: /\.woff|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
-            loader: 'file'
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/'
+                    }
+                }]
         }]
     }
 };
