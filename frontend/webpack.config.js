@@ -8,8 +8,6 @@ module.exports = {
         filename: './app.js'
     },
     devServer : {
-        lazy: false,
-        filename: 'app.js',
         clientLogLevel: 'error',
         compress: true,
         port: 8080,
