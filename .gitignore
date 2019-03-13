@@ -45,4 +45,4 @@ dist/
 
 package-lock.json
 
-public/
+public/app.js
