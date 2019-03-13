@@ -17,7 +17,10 @@
     "linux"
   ],
   "main": "src/loader.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "webpack-dev-server --progress --colors --inline --hot",
+    "production": "webpack --progress -p"
+  },
   "dependencies": {},
   "devDependencies": {
     "admin-lte": "^2.4.10",
