@@ -8,6 +8,10 @@ module.exports = {
         filename: './app.js'
     },
     devServer : {
+        lazy: false,
+        filename: 'app.js',
+        clientLogLevel: 'error',
+        compress: true,
         port: 8080,
         contentBase: './public'
     },
@@ -20,9 +24,9 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.ProgressPlugin((percentage, message) => {
-            console.log(`${(percentage * 100).toFixed()}% ${message}`);
-        }),
+        //new webpack.ProgressPlugin((percentage, message) => {
+        //    console.log(`${(percentage * 100).toFixed()}% ${message}`);
+        //}),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
