@@ -5,10 +5,11 @@ import { HashRouter } from "react-router-dom";
 import App from "./main/app";
 import reduces from './main/reducers';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import promise from 'redux-promise';
 import { Provider } from 'react-redux';
 
-const store = createStore(reduces);
+const store = applyMiddleware(promise)(createStore)(reduces);
 
 ReactDOM.render(
   <HashRouter>
