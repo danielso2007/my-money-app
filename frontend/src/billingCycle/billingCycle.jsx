@@ -11,6 +11,7 @@ import TabHeader from '../common/tab/tabHeader';
 import TabContent from '../common/tab/tabContent';
 
 import { selectTab, showTabs } from '../common/tab/tabActions';
+import List from '../billingCycle/billingCycleList';
 
 const mapDispatchProps = dispatch => bindActionCreators({selectTab, showTabs}, dispatch);
 
@@ -34,7 +35,7 @@ class BillingCycle extends Component {
                         <TabHeader label='Excluir' icon='trash-o' color='red' target='tabDelete' title='Excluir' />
                     </TabsHeader>
                     <TabsContent>
-                        <TabContent id='tabList'>Lista</TabContent>
+                        <TabContent id='tabList'><List/></TabContent>
                         <TabContent id='tabCreate'>Incluir</TabContent>
                         <TabContent id='tabUpdate'>Update</TabContent>
                         <TabContent id='tabDelete'>Delete</TabContent>
