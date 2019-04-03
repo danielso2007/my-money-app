@@ -4,11 +4,14 @@ import { bindActionCreators } from 'redux';
 
 import { getList } from './billingCycleActions';
 
+const mapStateToProps = state => ({ list: state.billingCycle.list });
 const mapDispatchProps = dispatch => bindActionCreators({getList}, dispatch);
 
 class BillingCycleList extends Component {
 
     componentWillMount() {
+        // this.props.getList().then(() => console.log(this.props.list));
+        this.props.getList();
     }
 
     render() {
@@ -31,4 +34,4 @@ class BillingCycleList extends Component {
 
 }
 
-export default connect(null, mapDispatchProps)(BillingCycleList);
+export default connect(mapStateToProps, mapDispatchProps)(BillingCycleList);
