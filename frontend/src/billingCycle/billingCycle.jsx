@@ -5,6 +5,7 @@ import Content from '../common/template/content';
 import Tabs from '../common/tab/tabs';
 import TabsHeader from '../common/tab/tabsHeader';
 import TabsContent from '../common/tab/tabsContent';
+import TabHeader from '../common/tab/tabHeader';
 
 
 class BillingCycle extends Component {
@@ -16,6 +17,10 @@ class BillingCycle extends Component {
             <Content>
                 <Tabs>
                     <TabsHeader>
+                        <TabHeader label='Listar' icon='bars' target='tabList' title='Listar' />
+                        <TabHeader label='Incluir' icon='plus' target='tabCreate' title='Incluir' />
+                        <TabHeader label='Alterar' icon='pencil' target='tabUpdate' title='Alterar' />
+                        <TabHeader label='Excluir' icon='trash-o' target='tabDelete' title='Excluir' />
                     </TabsHeader>
                     <TabsContent>
                     </TabsContent>
