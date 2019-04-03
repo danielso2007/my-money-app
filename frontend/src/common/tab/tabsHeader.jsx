@@ -1,7 +1,7 @@
 import React from "react";
 
 export default props => (
-    <ul className='nav nav-tabs'>
+    <ul id='tabs_header' className='nav nav-tabs'>
         {props.children}
     </ul>
 );

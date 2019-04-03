@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default props => (
-    <div className='row'>{props.children}</div>
+    <div id='row' className='row'>{props.children}</div>
 )

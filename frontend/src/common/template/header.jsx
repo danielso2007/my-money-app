@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default props => (
-    <header className="main-header">
+    <header id='main_header' className="main-header">
         <a href="#/" className='logo'>
              <span className="logo-mini"><i className="fa fa-money"></i></span>
              <span className="logo-lg">
@@ -9,7 +9,7 @@ export default props => (
                   <b> My</b> Money
              </span>
         </a>
-        <nav className="navbar navbar-static-top">
+        <nav id='main_nav' className="navbar navbar-static-top">
             <a href="#" className="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span className="sr-only">Toggle navigation</span>
             </a>

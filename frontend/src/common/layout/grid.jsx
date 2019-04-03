@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { criarIdTag } from '../utils';
 
 export default class Grid extends Component {
 
@@ -17,7 +18,7 @@ export default class Grid extends Component {
     render() {
         const gridClasses = this.toCssClasses(this.props.cols || '12');
         return (
-            <div className={gridClasses}>{this.props.children}</div>
+            <div id={`grid_${criarIdTag(this.props.id)}`} className={gridClasses}>{this.props.children}</div>
         );
     }
 

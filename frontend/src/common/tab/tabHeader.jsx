@@ -15,7 +15,7 @@ class TabHeader extends Component {
         const visible = this.props.tab.visible[this.props.target];
         return (
             <If test={visible}>
-                <li className={selected ? 'active' : ''}>
+                <li id={`tab_header_${this.props.target}`} className={selected ? 'active' : ''}>
                     <a href='javascript:;' data-toggle='tab' title={this.props.title}
                     onClick={() => this.props.selectTab(this.props.target)}
                     data-target={this.props.target}>
