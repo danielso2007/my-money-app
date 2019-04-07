@@ -8,6 +8,10 @@ body {
     background-color: #ecf0f5;
 }
 
+.margin_left_10 {
+    margin-left: 10px
+}
+
 .loading_page {
     width: 50px;
     height: 50px;
