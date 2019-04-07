@@ -1,4 +1,7 @@
 export function criarIdTag(text) {
+    if (text === undefined) {
+        return '';
+    }
     text = text.toLowerCase().replace(new RegExp(' ', 'g'), '_');
     text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
     text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');

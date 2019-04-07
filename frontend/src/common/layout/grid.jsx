@@ -18,7 +18,7 @@ export default class Grid extends Component {
     render() {
         const gridClasses = this.toCssClasses(this.props.cols || '12');
         return (
-            <div id={`grid_${criarIdTag(this.props.id)}`} className={gridClasses}>{this.props.children}</div>
+            <div id={`grid_${criarIdTag(this.props.id ? this.props.id : this.props.name)}`} className={gridClasses}>{this.props.children}</div>
         );
     }
 
