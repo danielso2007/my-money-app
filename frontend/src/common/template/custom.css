@@ -66,5 +66,20 @@ body {
 }
 
 .color_blue {
-    color: blue;
+    color: #3c8dbc;
+}
+
+.btn-edit {
+    background-color: #008000;
+    border-color: #019201;
+    color: white;
+}
+
+.btn-edit:hover, .btn-edit:active, .btn-edit.hover {
+    background-color: #016d01;
+    color: white;
+}
+
+.table-actions {
+    width: 15%;
 }

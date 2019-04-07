@@ -22,7 +22,7 @@ class BillingCycleList extends Component {
                 <td id={`col_${index}.2`}>{bc.month}</td>
                 <td id={`col_${index}.3`}>{bc.year}</td>
                 <td>
-                     <button title='Editar' className='btn btn-warning' onClick={() => this.props.showUpdate(bc)}>
+                     <button title='Editar' className='btn btn-edit' onClick={() => this.props.showUpdate(bc)}>
                          <i className='fa fa-pencil'></i>
                      </button>
                      <button title='Deletar' className='btn btn-danger margin_left_10' onClick={() => this.props.showDelete(bc)}>
@@ -42,7 +42,7 @@ class BillingCycleList extends Component {
                            <th>Nome</th>
                            <th>Mês</th>
                            <th>Ano</th>
-                           <th>Ações</th>
+                           <th className='table-actions'>Ações</th>
                        </tr>
                    </thead>
                    <tbody id='tbody_list'>
