@@ -10,19 +10,18 @@ import TabsContent from '../common/tab/tabsContent';
 import TabHeader from '../common/tab/tabHeader';
 import TabContent from '../common/tab/tabContent';
 
-import { create, update, remove } from './billingCycleActions';
+import { create, update, remove, init } from './billingCycleActions';
 
 import { selectTab, showTabs } from '../common/tab/tabActions';
 import List from '../billingCycle/billingCycleList';
 import Form from '../billingCycle/billingCycleForm';
 
-const mapDispatchProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove}, dispatch);
+const mapDispatchProps = dispatch => bindActionCreators({selectTab, showTabs, create, update, remove, init}, dispatch);
 
 class BillingCycle extends Component {
 
     componentWillMount() {
-        this.props.selectTab('tabList');
-        this.props.showTabs('tabList', 'tabCreate');
+        this.props.init();
     }
 
     render() {
