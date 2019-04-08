@@ -23,7 +23,7 @@ class BillingCycleForm extends Component {
                     <ItemList cols='12 12 6 6' list={credits} readOnly={readOnly}
                             field='credits' legend='Créditos' />
                     <ItemList cols='12 12 6 6' list={credits} readOnly={readOnly}
-                            field='debts' legend='Débitos' />
+                            field='debts' legend='Débitos' showStatus={true} />
                 </div>
                 <div className='box-footer'>
                     <button type='submit' className={`btn btn-${this.props.submitClass}`}>{this.props.submitLabel}</button>
@@ -39,6 +39,6 @@ BillingCycleForm = reduxForm({form: 'billingCycleForm', destroyOnUnmount: false}
 const selector = formValueSelector('billingCycleForm');
 
 const mapDispatchProps = dispatch => bindActionCreators({init}, dispatch);
-const mapStateToProps = state => ({ credits: selector(state, 'credits') });
+const mapStateToProps = state => ({ credits: selector(state, 'credits'), debts: selector(state, 'debts') });
 
 export default connect(mapStateToProps, mapDispatchProps)(BillingCycleForm);

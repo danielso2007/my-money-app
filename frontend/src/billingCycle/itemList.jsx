@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, arrayInsert, arrayRemove } from 'redux-form';
 import Input from '../common/form/input';
+import If from '../common/operator/if';
 
 class ItemList extends Component {
 
@@ -22,11 +23,15 @@ class ItemList extends Component {
     renderRows() {
         const list = this.props.list || [];
         return list.map((item, index) => (
-            <tr key={`credit_row_${index}`}>
+            <tr key={`${this.props.field}_row_${index}`}>
                 <td><Field name={`${this.props.field}[${index}].name`} component={Input}
                            placeholder='Informe o nome' readOnly={this.props.readOnly}></Field></td>
                 <td><Field name={`${this.props.field}[${index}].value`} component={Input} type='number'
                            placeholder='Informe o valor' readOnly={this.props.readOnly}></Field></td>
+                <If test={this.props.showStatus}>
+                    <td><Field name={`${this.props.field}[${index}].status`} component={Input}
+                           placeholder='Informe o status' readOnly={this.props.readOnly}></Field></td>
+                </If>
                 <td>
                     <button type='button' className='btn btn-success margin_right_5' onClick={() => this.add(index + 1)}>
                         <i className='fa fa-plus'></i>
@@ -52,6 +57,9 @@ class ItemList extends Component {
                             <tr>
                                 <th>Nome</th>
                                 <th>Valor</th>
+                                <If test={this.props.showStatus}>
+                                    <th>Status</th>
+                                </If>
                                 <th className='table-actions-list'>Ações</th>
                             </tr>
                         </thead>
