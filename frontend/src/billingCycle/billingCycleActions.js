@@ -47,7 +47,7 @@ export function showUpdate(billingCycle) {
     return [
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
-        initialize('billingCycleForm',billingCycle)
+        initialize('billingCycleForm', billingCycle)
     ]
 };
 
@@ -55,7 +55,7 @@ export function showDelete(billingCycle) {
     return [
         showTabs('tabDelete'),
         selectTab('tabDelete'),
-        initialize('billingCycleForm',billingCycle)
+        initialize('billingCycleForm', billingCycle)
     ]
 };
 
