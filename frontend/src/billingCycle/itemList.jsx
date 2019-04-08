@@ -5,17 +5,17 @@ import { bindActionCreators } from 'redux';
 import { Field, arrayInsert, arrayRemove } from 'redux-form';
 import Input from '../common/form/input';
 
-class CreditList extends Component {
+class ItemList extends Component {
 
     add(index, item = {}) {
         if (!this.props.readOnly) {
-            this.props.arrayInsert('billingCycleForm', 'credits', index, item);
+            this.props.arrayInsert('billingCycleForm', this.props.field, index, item);
         }
     }
 
     remove(index) {
         if (!this.props.readOnly && this.props.list.length > 1) {
-            this.props.arrayRemove('billingCycleForm', 'credits', index);
+            this.props.arrayRemove('billingCycleForm', this.props.field, index);
         }
     }
 
@@ -23,9 +23,9 @@ class CreditList extends Component {
         const list = this.props.list || [];
         return list.map((item, index) => (
             <tr key={`credit_row_${index}`}>
-                <td><Field name={`credits[${index}].name`} component={Input}
+                <td><Field name={`${this.props.field}[${index}].name`} component={Input}
                            placeholder='Informe o nome' readOnly={this.props.readOnly}></Field></td>
-                <td><Field name={`credits[${index}].value`} component={Input} type='number'
+                <td><Field name={`${this.props.field}[${index}].value`} component={Input} type='number'
                            placeholder='Informe o valor' readOnly={this.props.readOnly}></Field></td>
                 <td>
                     <button type='button' className='btn btn-success margin_right_5' onClick={() => this.add(index + 1)}>
@@ -46,7 +46,7 @@ class CreditList extends Component {
         return (
             <Grid id='grid_credits' cols={this.props.cols}>
                 <fieldset id='fieldset_credits'>
-                    <legend>Créditos</legend>
+                    <legend>{this.props.legend}</legend>
                     <table id='table_credit_list' className='table'>
                         <thead>
                             <tr>
@@ -67,4 +67,4 @@ class CreditList extends Component {
 
 const mapDispatchProps = dispatch => bindActionCreators({arrayInsert, arrayRemove}, dispatch);
 
-export default connect(null, mapDispatchProps)(CreditList);;
+export default connect(null, mapDispatchProps)(ItemList);
