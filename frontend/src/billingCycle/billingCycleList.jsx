@@ -22,10 +22,10 @@ class BillingCycleList extends Component {
                 <td id={`col_${index}.2`}>{bc.month}</td>
                 <td id={`col_${index}.3`}>{bc.year}</td>
                 <td>
-                     <button title='Editar' className='btn btn-edit' onClick={() => this.props.showUpdate(bc)}>
+                     <button title='Editar' className='btn btn-edit margin_right_5' onClick={() => this.props.showUpdate(bc)}>
                          <i className='fa fa-pencil'></i>
                      </button>
-                     <button title='Deletar' className='btn btn-danger margin_left_10' onClick={() => this.props.showDelete(bc)}>
+                     <button title='Deletar' className='btn btn-danger' onClick={() => this.props.showDelete(bc)}>
                          <i className='fa fa-trash-o'></i>
                      </button>
                 </td>
