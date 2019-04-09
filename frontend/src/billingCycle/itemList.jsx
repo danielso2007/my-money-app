@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, arrayInsert, arrayRemove } from 'redux-form';
 import Input from '../common/form/input';
+import InputSelect from '../common/form/inputSelect';
 import If from '../common/operator/if';
 
 class ItemList extends Component {
@@ -22,6 +23,11 @@ class ItemList extends Component {
 
     renderRows() {
         const list = this.props.list || [];
+        const options = [
+            {value: 'PAGO', description: 'Pago'},
+            {value: 'PENDENTE', description: 'Pendente'},
+            {value: 'AGENDADO', description: 'Agendado'}
+        ];
         return list.map((item, index) => (
             <tr key={`${this.props.field}_row_${index}`}>
                 <td><Field name={`${this.props.field}[${index}].name`} component={Input}
@@ -29,7 +35,8 @@ class ItemList extends Component {
                 <td><Field name={`${this.props.field}[${index}].value`} component={Input} type='number'
                            placeholder='Informe o valor' readOnly={this.props.readOnly}></Field></td>
                 <If test={this.props.showStatus}>
-                    <td><Field name={`${this.props.field}[${index}].status`} component={Input}
+                    <td><Field name={`${this.props.field}[${index}].status`} component={InputSelect}
+                           options={options}
                            placeholder='Informe o status' readOnly={this.props.readOnly}></Field></td>
                 </If>
                 <td>

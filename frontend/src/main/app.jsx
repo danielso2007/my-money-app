@@ -12,7 +12,7 @@ export default props => (
       <Header />
       <Sidebar />
       <div className="content-wrapper">
-        <Routes/>
+          <Routes/>
       </div>
       <Footer />
       <Messages />

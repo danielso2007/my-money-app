@@ -19,7 +19,7 @@ class BillingCycleForm extends Component {
     }
 
     render() {
-        const { handleSubmit, readOnly, credits } = this.props;
+        const { handleSubmit, readOnly, credits, debts } = this.props;
         const { sumOfCredits, sumOfDebts } = this.calculateSummary();
         return (
             <form role='form' onSubmit={handleSubmit}>
@@ -33,7 +33,7 @@ class BillingCycleForm extends Component {
                     <Summary credit={sumOfCredits} debt={sumOfDebts}></Summary>
                     <ItemList cols='12 12 6 6' list={credits} readOnly={readOnly}
                             field='credits' legend='Créditos' />
-                    <ItemList cols='12 12 6 6' list={credits} readOnly={readOnly}
+                    <ItemList cols='12 12 6 6' list={debts} readOnly={readOnly}
                             field='debts' legend='Débitos' showStatus={true} />
                 </div>
                 <div className='box-footer'>
