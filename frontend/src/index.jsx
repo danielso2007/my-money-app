@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
 
-import App from "./main/app";
+import AuthOrApp from "./main/authOrApp";
 import reduces from './main/reducers';
 
 import { createStore, applyMiddleware } from 'redux';
@@ -18,7 +18,7 @@ const store = applyMiddleware(multi, thunk, promise)(createStore)(reduces, devTo
 ReactDOM.render(
   <HashRouter>
     <Provider store={store}>
-        <App />
+        <AuthOrApp />
     </Provider>
   </HashRouter>,
   document.getElementById("app")
