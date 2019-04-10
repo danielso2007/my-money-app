@@ -87,6 +87,27 @@ debts[0][value]: 2369
 debts[0][status]: PAGO
 ```
 
-## Consuntando com paginação e ordenação
+## Consultando com paginação e ordenação
 
 http://localhost:3003/api/billingCycles?skip=0&limit=3&sort=month
+
+
+# Autenticação
+
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
+
+bcrypt é uma função hash de senhas projetada por Niels Provos e David Mazières, baseada na cifra Blowfish e apresentada na USENIX em 1999. [1] Além de incorporar um salt para proteger contra ataques rainbow table attacks , o bcrypt é uma função adaptativa: com o tempo, a contagem de iteração pode ser aumentada para torná-lo mais lento, por isso, permanece resistente a ataques de busca de força bruta, mesmo com o aumento do poder de computação.
+
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+
+O JSON Web Token (JWT) é um meio compacto e seguro de URL para representar alega ser transferido entre duas partes. As reivindicações em um JWT são codificados como um objeto JSON que é usado como carga útil de um JSON
+Estrutura de Assinatura da Web (JWS) ou como texto simples de uma Web JSON Criptografia (JWE), permitindo que as solicitações sejam digitalmente assinado ou protegido por integridade com um Código de Autenticação de Mensagem (MAC) e / ou criptografados.
+
+### Para Encode or Decode JWTs
+
+- [JSON Web Token](https://www.jsonwebtoken.io/)
+- [jwt.io](https://jwt.io/)
+
+### Arquivo `.env`
+
+O objetivo principal do .env é armazenar váriáveis de configuração da sua aplicação backend, por enquando será armazendo apenas a chave usada para gerar o token JWT.
