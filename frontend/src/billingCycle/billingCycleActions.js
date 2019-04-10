@@ -7,7 +7,10 @@ import consts from '../consts';
 const INICIAL_VALUES = {credits: [{}], debts: [{}]};
 
 export function getList() {
-    const request = axios.get(`${consts.API_URL}/billingCycles`);
+    const request = axios.get(`${consts.API_URL}/billingCycles`)
+    .catch(e => {
+        console.error(e);
+    });
     return {
         type: 'BILLING_CYCLES_FETCHED',
         payload: request
