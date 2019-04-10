@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter } from "react-router-dom";
 
 import AuthOrApp from "./main/authOrApp";
 import reduces from './main/reducers';
@@ -16,10 +15,8 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_
 const store = applyMiddleware(multi, thunk, promise)(createStore)(reduces, devTools);
 
 ReactDOM.render(
-  <HashRouter>
     <Provider store={store}>
         <AuthOrApp />
-    </Provider>
-  </HashRouter>,
+    </Provider>,
   document.getElementById("app")
 );

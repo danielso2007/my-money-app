@@ -6,6 +6,8 @@
 
 body {
   background-color: #ecf0f5;
+  height: auto !important;
+  min-height: 100% !important;
 }
 
 .margin_left_5 {
