@@ -115,3 +115,85 @@ O objetivo principal do .env é armazenar váriáveis de configuração da sua a
 # Enviando variável para o webpack
 
 `MONGOLAB_URI=mongodb://localhost/mymoney AUTH_SECRET=d693dec53c75117c134cb4751ac978c6 yarn dev`
+
+# Deploy Heroku (Backend)
+
+## Passos para o deploy...
+
+### 1) Instalar o _Heroku CLI_
+
+```bash
+$ npm install -g heroku-cli
+```
+### 2) Verificar a instalação do _Heroku CLI_
+
+```bash
+$ heroku --version
+```
+
+### 3) Efetuar o login com _Heroku CLI_
+
+```bash
+$ heroku login
+
+Enter your Heroku credentials:
+Email: <SEU E-MAIL>
+Password: **********
+Logged in as <SEU E-MAIL>
+```
+
+### 4) Criar um projeto no Heroku via _Heroku CLI_
+
+```bash
+$ heroku create estudo-my-money-app-backend
+```
+
+### 5) Selecionar o buildpack para NodeJS
+
+```bash
+$ heroku buildpacks:set heroku/nodejs
+```
+
+### 6) Configurar o repositório remoto
+
+```bash
+$ heroku git:remote -a estudo-my-money-app-backend
+```
+
+### 7) Adicionar o Add-on do **_mLab_** para termos uma instância do **_MongoDB_**
+
+![](doc/mongo_addon.png)
+*Add-on do **_mLab_***
+
+### 8) Clicar no Add-on do **_mLab_** e adicionar o usuário da aplicação
+
+![](doc/mongo_add_user.png)
+*Adicionar usuário do **_MongoDB_***
+
+### 9) Configurar as variáveis de ambiente que a aplicação **_backend_** usa.
+
+```bash
+# URL_MONGO é mais ou menos assim: mongodb://user:pass@XYZ.mlab.com:19585/heroku_XYZ
+$ heroku config:set MONGOLAB_URI=<URL_MONGO>
+
+# Gere o seu próprio AUTH_SECRET
+$ heroku config:set AUTH_SECRET=<KEY>
+```
+
+### 10) Fazer deploy da aplicação via **push** no repositório.
+
+```bash
+$ git push heroku master
+```
+
+### 11) Definir o tipo de escalonamento mínimo (grátis) - Passo **Opcional**
+
+```bash
+$ heroku ps:scale web=1
+```
+
+### 12) Consultar o log e verificar se tudo ocorreu bem - Passo **Opcional**
+
+```bash
+$ heroku logs --tail
+```
