@@ -1,6 +1,6 @@
 {
   "name": "my-money-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,5 @@
   "devDependencies": {
     "standard-version": "^5.0.1"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
