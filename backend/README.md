@@ -111,3 +111,7 @@ Estrutura de Assinatura da Web (JWS) ou como texto simples de uma Web JSON Cript
 ### Arquivo `.env`
 
 O objetivo principal do .env é armazenar váriáveis de configuração da sua aplicação backend, por enquando será armazendo apenas a chave usada para gerar o token JWT.
+
+# Enviando variável para o webpack
+
+`MONGOLAB_URI=mongodb://localhost/mymoney AUTH_SECRET=d693dec53c75117c134cb4751ac978c6 yarn dev`
