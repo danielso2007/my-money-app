@@ -151,7 +151,7 @@ $ heroku create estudo-my-money-app-backend
 ### 5) Selecionar o buildpack para NodeJS
 
 ```bash
-$ heroku buildpacks:set heroku/nodejs
+$ heroku buildpacks:set heroku/nodejs -a estudo-my-money-app-backend
 ```
 
 ### 6) Configurar o repositório remoto
@@ -162,18 +162,16 @@ $ heroku git:remote -a estudo-my-money-app-backend
 
 ### 7) Adicionar o Add-on do **_mLab_** para termos uma instância do **_MongoDB_**
 
-![](doc/mongo_addon.png)
 *Add-on do **_mLab_***
 
 ### 8) Clicar no Add-on do **_mLab_** e adicionar o usuário da aplicação
 
-![](doc/mongo_add_user.png)
 *Adicionar usuário do **_MongoDB_***
 
 ### 9) Configurar as variáveis de ambiente que a aplicação **_backend_** usa.
 
 ```bash
-# URL_MONGO é mais ou menos assim: mongodb://user:pass@XYZ.mlab.com:19585/heroku_XYZ
+# URL_MONGO é mais ou menos assim: mongodb://<dbuser>:<dbpassword>@ds037215.mlab.com:37215/heroku_n8633ft5
 $ heroku config:set MONGOLAB_URI=<URL_MONGO>
 
 # Gere o seu próprio AUTH_SECRET
