@@ -19,7 +19,8 @@
   "main": "src/loader.js",
   "scripts": {
     "dev": "nodemon",
-    "prod": "pm2 start src/loader.js --name my-money-backend"
+    "prod": "pm2 start src/loader.js --name my-money-backend",
+    "start": "node src/loader.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.5",
